@@ -2,7 +2,7 @@ import React from 'react';
 
 const WalletPage: React.FC = () => {
   return (
-    <div>
+    <div className="page-content">
       <h1>Wallet & Transactions</h1>
     </div>
   );

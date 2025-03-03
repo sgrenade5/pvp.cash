@@ -1,11 +1,11 @@
 import React from 'react';
 
-const ProfilePage: React.FC = () => {
+const WheelPage: React.FC = () => {
   return (
     <div className="page-content">
-      <h1>Profile</h1>
+      <h1>Wheel Game</h1>
     </div>
   );
 };
 
-export default ProfilePage; 
+export default WheelPage; 
