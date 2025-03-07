@@ -1,0 +1,61 @@
+.heading-container {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: -40px; /* Negative margin to move it up */
+}
+
+.welcome-heading {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  margin-bottom: 25px; /* Space below the heading for the underline */
+}
+
+.welcome-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  right: 50%;
+  height: 3px;
+  background-color: white;
+  transition: all 1.2s ease-out;
+}
+
+.welcome-heading.animate-underline::after {
+  left: 0;
+  right: 0;
+}
+
+.description {
+  max-width: 800px;
+  margin: 9px auto 0;
+  color: white;
+  font-size: 2rem;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  
+  /* Animation properties */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 1s ease-out forwards;
+  animation-delay: 0.8s; /* Start after the underline animation begins */
+}
+
+.description em {
+  font-style: italic;
+  font-weight: 500;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
