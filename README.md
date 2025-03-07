@@ -1,18 +1,18 @@
-# PvPCasino
+# pvp.cash
 
-*PvPCasino is currently in development. This is a conceptual project and not yet available for real money gambling.*
+*pvp.cash is currently in development. This is a conceptual project and not yet available for real money gambling.*
 
 ## A Fair, Player-vs-Player Casino Platform
 
 ### Core Concept
 
-PvPCasino reimagines online gambling by eliminating the house edge and focusing on player-vs-player competition. Instead of betting against a casino with built-in mathematical advantages, players compete directly against each other, with the platform taking only a small 5% commission on each pot.
+pvp.cash reimagines online gambling by eliminating the house edge and focusing on player-vs-player competition. Instead of betting against a casino with built-in mathematical advantages, players compete directly against each other, with the platform taking only a small 5% commission on each pot.
 
-### Why PvPCasino?
+### Why pvp.cash?
 
 Traditional online casinos operate on a fundamental principle: the house always wins in the long run. Every game has a mathematical edge favoring the casino, ensuring their profit regardless of individual player outcomes.
 
-PvPCasino takes a different approach:
+pvp.cash takes a different approach:
 
 - **No House Edge**: Games have no built-in mathematical advantage against players
 - **Player vs Player**: All bets are placed against other players, not the house
@@ -48,9 +48,9 @@ Wheel is our first and flagship game, featuring:
 
 ### Join the Revolution
 
-PvPCasino represents a fundamental shift in how online gambling works. By focusing on player-vs-player competition and transparent commission structures, we're creating a fairer, more engaging gambling environment where skill and strategy matter more than luck.
+pvp.cash represents a fundamental shift in how online gambling works. By focusing on player-vs-player competition and transparent commission structures, we're creating a fairer, more engaging gambling environment where skill and strategy matter more than luck.
 
-Whether you're a casual player looking for a more social experience or a serious gambler tired of fighting against the house edge, PvPCasino offers a refreshing alternative to traditional online casinos.
+Whether you're a casual player looking for a more social experience or a serious gambler tired of fighting against the house edge, pvp.cash offers a refreshing alternative to traditional online casinos.
 
 ---
 
