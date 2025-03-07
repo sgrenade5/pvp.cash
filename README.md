@@ -1,5 +1,7 @@
 # pvp.cash
 
+### Wheel, Poker, Blackjack, Roulette, Tower, PvP.
+
 *pvp.cash is currently in development. This is a conceptual project and not yet available for real money gambling.*
 
 ## A Fair, Player-vs-Player Casino Platform
