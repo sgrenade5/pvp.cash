@@ -12,13 +12,13 @@ const gameData = [
   {
     id: 'poker',
     name: 'Poker',
-    description: 'Texas Hold\'em with no limits. Bluff, raise, and outsmart your enemies.',
+    description: 'Texas Hold\u2019em with no limits. Bluff, raise, and outsmart your enemies.',
     path: '/poker'
   },
   {
     id: 'blackjack',
     name: 'Blackjack',
-    description: 'Beat the dealer to 21 \nbut don\'t go over. \nDouble down for huge \nwins.',
+    description: 'Beat the dealer to 21 but don\u2019t go over. Double down for \nhuge wins.',
     path: '/blackjack'
   },
   {
@@ -30,13 +30,13 @@ const gameData = [
   {
     id: 'tower',
     name: 'Tower',
-    description: 'Climb the tower for increasing multipliers. \nCash out or risk it all.',
+    description: 'Climb the tower for increasing multipliers. \nCash out or risk it all. Go for a 2x or a 100x.',
     path: '/tower'
   },
   {
     id: 'pvp',
     name: 'PvP',
-    description: 'Direct player vs player betting. Create custom challenges and wagers.',
+    description: 'Direct player vs \nplayer betting. \nCreate custom challenges and wagers.',
     path: '/pvp'
   }
 ];
@@ -101,7 +101,7 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="page-content">
+    <div className="page-content home-page">
       <div className="heading-container">
         <h1 ref={headingRef} className="welcome-heading">
           welcome to pvp.cash
