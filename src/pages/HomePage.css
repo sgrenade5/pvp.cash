@@ -1,61 +1,303 @@
+/* Rest of your CSS starts here */
 .heading-container {
   width: 100%;
   text-align: center;
   margin-bottom: 30px;
   margin-top: -40px; /* Negative margin to move it up */
 }
-
-.welcome-heading {
-  position: relative;
-  display: inline-block;
-  text-align: center;
-  margin-bottom: 25px; /* Space below the heading for the underline */
-}
-
-.welcome-heading::after {
-  content: '';
-  position: absolute;
-  bottom: 0px;
-  left: 50%;
-  right: 50%;
-  height: 3px;
-  background-color: white;
-  transition: all 1.2s ease-out;
-}
-
-.welcome-heading.animate-underline::after {
-  left: 0;
-  right: 0;
-}
-
-.description {
-  max-width: 800px;
-  margin: 9px auto 0;
-  color: white;
-  font-size: 2rem;
-  line-height: 1;
-  font-weight: 400;
-  letter-spacing: 0.02em;
   
-  /* Animation properties */
-  opacity: 0;
-  transform: translateY(30px);
-  animation: slideUp 1s ease-out forwards;
-  animation-delay: 0.8s; /* Start after the underline animation begins */
-}
-
-.description em {
-  font-style: italic;
-  font-weight: 500;
-}
-
-@keyframes slideUp {
-  0% {
+  .welcome-heading {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 25px; /* Space below the heading for the underline */
+  }
+  
+  .welcome-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    right: 50%;
+    height: 3px;
+    background-color: white;
+    transition: all 1.2s ease-out;
+  }
+  
+  .welcome-heading.animate-underline::after {
+    left: 0;
+    right: 0;
+  }
+  
+  .description {
+    max-width: 800px;
+    margin: 9px auto 0;
+    color: white;
+    font-size: 2rem;
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    
+    /* Animation properties */
     opacity: 0;
     transform: translateY(30px);
+    animation: slideUp 1s ease-out forwards;
+    animation-delay: 0.8s; /* Start after the underline animation begins */
   }
-  100% {
+  
+  .description em {
+    font-style: italic;
+    font-weight: 500;
+  }
+  
+  @keyframes slideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Updated @font-face for The Seasons font with more comprehensive configuration */
+  @font-face {
+    font-family: 'The Seasons';
+    src: url('/fonts/TheSeasons-Italic.woff2') format('woff2'),
+         url('/fonts/TheSeasons-Italic.woff') format('woff'),
+         url('/fonts/TheSeasons-Italic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap; /* Ensures text remains visible during font loading */
+  }
+    
+  /* Game Cards Styling */
+  .game-selection {
+    margin-top: 50px;
+    text-align: center;
+  }
+  
+  .game-cards-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 12px;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    overflow-x: auto;
+  }
+  
+  .game-card {
+    position: relative;
+    width: 160px;
+    height: 220px;
+    flex: 0 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    perspective: 1000px;
+  }
+  
+  /* Colored borders for each card */
+  .wheel-card {
+    border: 2px solid #FF416C;
+  }
+  
+  .poker-card {
+    border: 2px solid #4776E6;
+  }
+  
+  .blackjack-card {
+    border: 2px solid #1D976C;
+  }
+  
+  .roulette-card {
+    border: 2px solid #FF8008;
+  }
+  
+  .tower-card {
+    border: 2px solid #36D1DC;
+  }
+  
+  .pvp-card {
+    border: 2px solid #ED213A;
+  }
+  
+  .game-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+  }
+  
+  .card-front, .card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    backface-visibility: hidden;
+    color: white;
+  }
+  
+  .card-front {
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+/* Updated card front heading without italics */
+.game-card .card-front h3 {
+    font-family: 'The Seasons', 'Playfair Display', Georgia, serif !important;
+    font-style: normal; /* Changed from italic to normal */
+    transform: rotate(-30deg);
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .card-back {
+    opacity: 0;
+    transform: rotateY(180deg);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    position: relative; /* Add this to make absolute positioning work relative to the card */
+  }
+  
+  .game-card:hover .card-front {
+    opacity: 0;
+    transform: rotateY(-180deg);
+  }
+  
+  .game-card:hover .card-back {
     opacity: 1;
-    transform: translateY(0);
+    transform: rotateY(0);
   }
-}
+  
+  /* Increased font size for card description text - CHANGE THIS VALUE TO ADJUST TEXT SIZE */
+  .description-card {
+    font-style: normal;
+    font-size: 20px; /* INCREASED FROM 14px - ADJUST THIS FOR BIGGER/SMALLER TEXT */
+    line-height: 1.4;
+    padding-right: 0px;
+    margin-bottom: 8px; /* Increased space at bottom for stacked buttons */
+    overflow-y: auto;
+    white-space: pre-line;
+  }
+  
+  /* Add this to your HomePage.css file */
+  .poker-card .description-card {
+    margin-top: 13px; /* Adjust this negative value to move the text up */
+    white-space: pre-line; /* Preserve line breaks */
+  }
+  
+  /* Add this to your HomePage.css file */
+  .wheel-card .description-card {
+    margin-top: 13px; /* Adjust this negative value to move the text up */
+    white-space: pre-line; /* Preserve line breaks */
+  }
+  
+  /* Add this to your HomePage.css file */
+  .blackjack-card .description-card {
+    margin-top: 0px; /* Adjust this negative value to move the text up */
+    white-space: pre-line; /* Preserve line breaks */
+  }
+  
+  /* Add this to your HomePage.css file */
+  .roulette-card .description-card {
+    margin-top: 0px; /* Adjust this negative value to move the text up */
+    white-space: pre-line; /* Preserve line breaks */
+    margin-left: 8px; /* Move text left */
+    padding-right: 10px;
+  }
+  
+  /* Add this to your HomePage.css file */
+  .tower-card .description-card {
+    margin-top: 15px; /* Adjust this negative value to move the text up */
+    white-space: pre-line; /* Preserve line breaks */
+    margin-left: 4px; /* Move text left */
+    padding-right: 10px;
+  }
+  
+  /* Add this to your HomePage.css file */
+  .pvp-card .description-card {
+    margin-top: 12px; /* Adjust this negative value to move the text up */
+    white-space: pre-line; /* Preserve line breaks */
+  }
+  
+  /* Button positioning code - stacked vertically with auto width */
+  .button-group {
+    position: absolute; /* Position absolutely within the card */
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 6px;
+    width: auto; /* Allow natural width based on content */
+    
+    /* Bottom positioning */
+    bottom: 45px;
+    left: 30px;
+  }
+  
+  /* Adjusted width for buttons based on content */
+  .play-button {
+    font-style: normal;
+    padding: 8px 25px; /* Added horizontal padding */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    text-align: center;
+    width: auto; /* Only as wide as the text content */
+    display: inline-block; /* Allow natural width */
+  }
+  
+  .play-button.solo {
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+  }
+  
+  .play-button.squads {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .play-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .game-cards-container {
+      gap: 10px;
+    }
+    
+    .game-card {
+      width: 140px;
+      height: 200px;
+    }
+    
+    .description-card {
+      font-size: 14px; /* Adjusted for mobile */
+      margin-bottom: 70px;
+    }
+    
+    .play-button {
+      font-size: 13px; /* Adjusted for mobile */
+      padding: 6px 0;
+    }
+  }

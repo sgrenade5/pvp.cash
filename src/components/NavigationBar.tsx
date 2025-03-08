@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&display=swap';
 
 const NavigationBar: React.FC = () => {
   return (

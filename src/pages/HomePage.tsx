@@ -1,10 +1,77 @@
 import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './HomePage.css';
+
+const gameData = [
+  {
+    id: 'wheel',
+    name: 'Wheel',
+    description: 'Spin the wheel and test your luck. Higher risk, higher reward.',
+    path: '/wheel'
+  },
+  {
+    id: 'poker',
+    name: 'Poker',
+    description: 'Texas Hold\'em with no limits. Bluff, raise, and outsmart your enemies.',
+    path: '/poker'
+  },
+  {
+    id: 'blackjack',
+    name: 'Blackjack',
+    description: 'Beat the dealer to 21 \nbut don\'t go over. \nDouble down for huge \nwins.',
+    path: '/blackjack'
+  },
+  {
+    id: 'roulette',
+    name: 'Roulette',
+    description: 'Place your bets and \nwatch the ball spin. \nRed, black, or go all \nin on a number.',
+    path: '/roulette'
+  },
+  {
+    id: 'tower',
+    name: 'Tower',
+    description: 'Climb the tower for increasing multipliers. \nCash out or risk it all.',
+    path: '/tower'
+  },
+  {
+    id: 'pvp',
+    name: 'PvP',
+    description: 'Direct player vs player betting. Create custom challenges and wagers.',
+    path: '/pvp'
+  }
+];
+
+const GameCard = ({ game, onPlay }) => {
+  return (
+    <div className={`game-card ${game.id}-card`}>
+      <div className="card-front">
+        <h3>{game.name}</h3>
+      </div>
+      <div className="card-back">
+        <p className="description-card">{game.description}</p>
+        <div className="button-group">
+          <button 
+            className="play-button solo" 
+            onClick={() => onPlay(game.path, 'solo')}
+          >
+            Solo
+          </button>
+          <button 
+            className="play-button squads" 
+            onClick={() => onPlay(game.path, 'squads')}
+          >
+            Squads
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const HomePage: React.FC = () => {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const descriptionRef = useRef<HTMLParagraphElement>(null);
+  const navigate = useNavigate();
   
   useEffect(() => {
     // Reset animations
@@ -28,6 +95,11 @@ const HomePage: React.FC = () => {
     };
   }, []);
 
+  const handlePlay = (path, mode) => {
+    console.log(`Playing in ${mode} mode`);
+    navigate(path);
+  };
+
   return (
     <div className="page-content">
       <div className="heading-container">
@@ -38,17 +110,16 @@ const HomePage: React.FC = () => {
           type in your own custom bets, raise the stakes, and see who wins. no restrictions, no downtime — <em>just pure degeneracy.</em>
         </p>
       </div>
-      <section>
+      <section className="game-selection">
         <h2>Game Selection</h2>
-        <ul>
-          <li><Link to="/wheel">Wheel</Link></li>
-          <li><Link to="/poker">Poker</Link></li>
-        </ul>
+        <div className="game-cards-container">
+          {gameData.map(game => (
+            <GameCard key={game.id} game={game} onPlay={handlePlay} />
+          ))}
+        </div>
       </section>
     </div>
   );
 };
 
 export default HomePage;
-
-// Wheel, Poker, Blackjack, Roulette, Tower, PvP
